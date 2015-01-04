@@ -9,12 +9,12 @@ model::~model()
     listen_observers.clear();
 }
 
-void model::attach(gen_main_window_t obs)
+void model::attach(model_observer_t obs)
 {
     listen_observers.push_back(obs);
 }
 
-void model::detach(gen_main_window_t obs)
+void model::detach(model_observer_t obs)
 {
     auto it = std::find(listen_observers.begin(),listen_observers.end(), obs);
     if (it != listen_observers.end()) {

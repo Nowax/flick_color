@@ -1,5 +1,9 @@
-#include "palette_observer.h"
+#include "color_palette_observer.h"
 
-palette_observer::palette_observer()
+color_palette_observer::color_palette_observer()
+{
+}
+
+void color_palette_observer::update(int changed_element)
 {
 }

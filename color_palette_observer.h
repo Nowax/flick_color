@@ -1,10 +1,15 @@
-#ifndef PALETTE_OBSERVER_H
-#define PALETTE_OBSERVER_H
+#ifndef COLOR_PALETTE_OBSERVER_H
+#define COLOR_PALETTE_OBSERVER_H
 
-class palette_observer
+#include "model_observer.h"
+
+class color_palette_observer : public model_observer
 {
 public:
-    palette_observer();
+    color_palette_observer();
+
+    virtual void update(int changed_element);
+
 };
 
-#endif // PALETTE_OBSERVER_H
+#endif // COLOR_PALETTE_OBSERVER_H

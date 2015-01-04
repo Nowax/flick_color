@@ -18,12 +18,14 @@ SOURCES += main.cpp\
     model_observer.cpp \
     model.cpp \
     color_palette.cpp \
-    gen_main_window.cpp
+    gen_main_window.cpp \
+    color_palette_observer.cpp
 
 HEADERS  += \
     model_observer.h \
     model.h \
     color_palette.h \
-    gen_main_window.h
+    gen_main_window.h \
+    color_palette_observer.h
 
 FORMS    += main_window.ui
