@@ -1,13 +1,23 @@
 #include "color_palette.h"
 
-color_palette::color_palette(gen_main_window_t mw) :
-    palette(0)
+color_palette::color_palette(std::shared_ptr<class main_window> main_window) :
+	color_handler(0)
 {
-    connect(*mw, SIGNAL(refresh_pallete), this, SLOT(change_palette(int)));
+//	connect(main_window.get(), SIGNAL(refresh_pallete(int)), this, SLOT(change_palette(int)));
 }
 
 void color_palette::change_palette(int val)
 {
-    palette = val;
-    notify_change(palette);
+	color_handler = val;
+	notify_change();
+}
+
+int color_palette::get_dominant_color()
+{
+	return color_handler;
+}
+
+void color_palette::set_dominant_color(int new_val)
+{
+	color_handler = new_val;
 }

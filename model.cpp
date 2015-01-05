@@ -1,6 +1,8 @@
 #include "model.h"
+#include <algorithm>
 
-model::model()
+model::model() :
+	self_handler(this)
 {
 }
 
@@ -9,12 +11,12 @@ model::~model()
     listen_observers.clear();
 }
 
-void model::attach(model_observer_t obs)
+void model::attach(std::shared_ptr<model_observer> obs)
 {
     listen_observers.push_back(obs);
 }
 
-void model::detach(model_observer_t obs)
+void model::detach(std::shared_ptr<class model_observer> obs)
 {
     auto it = std::find(listen_observers.begin(),listen_observers.end(), obs);
     if (it != listen_observers.end()) {
@@ -22,11 +24,11 @@ void model::detach(model_observer_t obs)
     }
 }
 
-void model::notify_change(int changed_element) const
+void model::notify_change() const
 {
-    for (const auto& observer : listen_observers) {
+	for (const auto& observer : listen_observers) {
         if (observer) {
-            observer->update(changed_element);
+			observer->update(self_handler);
         }
     }
 }

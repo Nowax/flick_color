@@ -4,3 +4,8 @@ model_observer::model_observer()
 {
 
 }
+
+model_observer::~model_observer()
+{
+
+}

@@ -1,23 +1,25 @@
 #ifndef COLOR_PALETTE_H
 #define COLOR_PALETTE_H
 
-#include "gen_main_window.h"
 #include "model.h"
-#include <boost/shared_ptr.hpp>
+#include <QObject>
+#include "main_window.h"
 
-typedef boost::shared_ptr<gen_main_window> gen_main_window_t;
-
-class color_palette : public model, public QObject
+class color_palette : public QObject, public model
 {
-public:
     Q_OBJECT
-    color_palette(gen_main_window_t mw);
+
+public:
+	color_palette(std::shared_ptr<class main_window> main_window);
+
+	int get_dominant_color();
+	void set_dominant_color(int new_val);
 
 private slots:
     void change_palette(int val);
 
 private:
-    int palette;
+	int color_handler;
 };
 
 #endif // COLOR_PALETTE_H

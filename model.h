@@ -1,13 +1,9 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <memory>
-#include <vector>
-#include "gen_main_window.h"
 #include "model_observer.h"
-
-//typedef std::shared_ptr<gen_main_window> gen_main_window_t;
-typedef std::shared_ptr<model_observer> model_observer_t;
+#include <memory>
+#include <list>
 
 class model
 {
@@ -15,12 +11,13 @@ public:
     model();
     ~model();
 
-    void attach(model_observer_t obs);
-    void detach(model_observer_t obs);
-    void notify_change(int changed_element) const;
+	void attach(std::shared_ptr<class model_observer> obs);
+	void detach(std::shared_ptr<class model_observer> obs);
+	void notify_change() const;
 
 private:
-    std::vector<model_observer_t> listen_observers;
+	std::list<std::shared_ptr<class model_observer>> listen_observers;
+	std::shared_ptr<class model> self_handler;
 };
 
 #endif // MODEL_H

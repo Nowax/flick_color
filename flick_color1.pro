@@ -13,19 +13,26 @@ QMAKE_CXXFLAGS += -std=c++11
 TARGET = flick_color1
 TEMPLATE = app
 
-
-SOURCES += main.cpp\
-    model_observer.cpp \
-    model.cpp \
-    color_palette.cpp \
-    gen_main_window.cpp \
-    color_palette_observer.cpp
-
 HEADERS  += \
     model_observer.h \
     model.h \
     color_palette.h \
-    gen_main_window.h \
-    color_palette_observer.h
+    color_palette_observer.h \
+    main_window.h \
+    palette_controller.h \
+    logger.h \
+    time_controller.h
+
+SOURCES += main.cpp\
+    model.cpp \
+    color_palette.cpp \
+    color_palette_observer.cpp \
+    main_window.cpp \
+    palette_controller.cpp \
+    model_observer.cpp \
+    logger.cpp \
+    time_controller.cpp
 
 FORMS    += main_window.ui
+
+DEFINES += DEBUG_1
