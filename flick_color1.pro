@@ -20,9 +20,11 @@ HEADERS  += \
     color_palette_observer.h \
     main_window.h \
     palette_controller.h \
-    logger.h \
-    time_controller.h \
-    common_consts.h
+    logger/logger.h \
+    logger/time_controller.h \
+    common_consts.h \
+    controller.h \
+    view.h
 
 SOURCES += main.cpp\
     model.cpp \
@@ -31,9 +33,11 @@ SOURCES += main.cpp\
     main_window.cpp \
     palette_controller.cpp \
     model_observer.cpp \
-    logger.cpp \
-    time_controller.cpp \
-    common_consts.cpp
+    logger/logger.cpp \
+    logger/time_controller.cpp \
+    common_consts.cpp \
+    controller.cpp \
+    view.cpp
 
 FORMS    += main_window.ui
 
