@@ -1,0 +1,10 @@
+@startuml
+model <|-- color_palette
+logger *-- time_controller
+model_observer <--> model
+color_palette_observer --|> model_observer
+color_palette_observer --> color_palette
+main_window o-- color_palette
+view --o color_palette_observer
+view <|-- main_window
+@enduml
