@@ -4,6 +4,9 @@
 #include "model.h"
 #include <QObject>
 #include "main_window.h"
+#include "logger.h"
+
+typedef std::shared_ptr<class logger> logger_t;
 
 class color_palette : public QObject, public model
 {
@@ -20,6 +23,7 @@ private slots:
 
 private:
 	int color_handler;
+	logger_t logger_h;
 };
 
 #endif // COLOR_PALETTE_H

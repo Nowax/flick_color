@@ -11,7 +11,7 @@ color_palette_observer::color_palette_observer() :
 color_palette_observer::~color_palette_observer()
 {
 	if (observed_palette_handler) {
-		//FIXME segfault
+		logger_h->log_debug("Detaching observer.");
 		observed_palette_handler->detach(me);
 	}
 }

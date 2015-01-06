@@ -24,13 +24,11 @@ public:
 
 private:
 	std::string my_name;
-	std::string log;
-	std::ofstream fileToSaveData;
 	time_controller_h time_controller_handler;
 
 	void print(std::string msg, std::string log_type);
 	std::string create_file_name();
-	void save_log();
+	void save_log(std::string log_msg);
 
 };
 

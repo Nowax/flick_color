@@ -8,7 +8,6 @@ class time_controller
 public:
 	time_controller();
 	std::string get_current_time();
-
 };
 
 #endif // TIME_CONTROLLER_H

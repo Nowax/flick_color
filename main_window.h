@@ -2,10 +2,13 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
+#include "logger.h"
 
 namespace Ui {
 class main_window;
 }
+
+typedef std::shared_ptr<class logger> logger_t;
 
 class main_window : public QMainWindow
 {
@@ -21,10 +24,11 @@ signals:
 	void refresh_palette(int val);
 
 private slots:
-	void on_spinBox_valueChanged(int arg1);
+	void on_spinBox_valueChanged(int new_val);
 
 private:
 	Ui::main_window *ui;
+	logger_t logger_h;
 };
 
 #endif // MAIN_WINDOW_H

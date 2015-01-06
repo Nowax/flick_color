@@ -21,7 +21,8 @@ HEADERS  += \
     main_window.h \
     palette_controller.h \
     logger.h \
-    time_controller.h
+    time_controller.h \
+    common_consts.h
 
 SOURCES += main.cpp\
     model.cpp \
@@ -31,8 +32,10 @@ SOURCES += main.cpp\
     palette_controller.cpp \
     model_observer.cpp \
     logger.cpp \
-    time_controller.cpp
+    time_controller.cpp \
+    common_consts.cpp
 
 FORMS    += main_window.ui
 
-DEFINES += DEBUG_1
+DEFINES += DEBUG_1 \
+        DEBUG_2
