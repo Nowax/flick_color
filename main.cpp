@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 
 	QApplication a(argc, argv);
 
-	auto w = std::shared_ptr<class main_window>(new main_window);
-	auto c_palette = std::shared_ptr<class color_palette>(new color_palette(w));
+	auto c_palette = std::shared_ptr<class color_palette>(new color_palette());
 	std::weak_ptr<class color_palette> wp_palette = c_palette;
-	auto palette_observer = std::shared_ptr<class color_palette_observer>(new color_palette_observer());
+	auto w = std::shared_ptr<class main_window>(new main_window(c_palette));
+	auto palette_observer = std::shared_ptr<class color_palette_observer>(new color_palette_observer(w));
 
 	palette_observer->subscribe(wp_palette.lock());
 	palette_observer->subscribe(c_palette);

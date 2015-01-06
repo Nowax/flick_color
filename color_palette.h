@@ -13,7 +13,7 @@ class color_palette : public QObject, public model
     Q_OBJECT
 
 public:
-	color_palette(std::shared_ptr<class main_window> main_window);
+	color_palette();
 
 	int get_dominant_color();
 	void set_dominant_color(int new_val);

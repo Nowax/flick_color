@@ -1,10 +1,11 @@
 #include "color_palette_observer.h"
 #include <QDebug>
 
-color_palette_observer::color_palette_observer() :
+color_palette_observer::color_palette_observer(main_window_t mw) :
 	model_observer(),
 	me(std::shared_ptr<class color_palette_observer>(this)),
-	logger_h(logger_t(new logger(std::string("color_pallete_observer"))))
+	logger_h(logger_t(new logger(std::string("color_pallete_observer")))),
+	main_window_h(mw)
 {
 }
 
@@ -30,9 +31,8 @@ void color_palette_observer::subscribe(std::shared_ptr<class color_palette> pale
 void color_palette_observer::update(std::shared_ptr<model> color_palette)
 {
 	if (color_palette == observed_palette_handler) {
-		//DO ACTION - as a response for change notify
 		int color = observed_palette_handler->get_dominant_color();
-
-		qDebug() << QString::number(color);
+		logger_h->log_debug("Received change notification - new dominant color is " + std::to_string(color));
+		main_window_h->update(color);
 	}
 }

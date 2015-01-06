@@ -1,10 +1,9 @@
 #include "color_palette.h"
 
-color_palette::color_palette(std::shared_ptr<class main_window> main_window) :
+color_palette::color_palette() :
 	color_handler(0),
 	logger_h(logger_t(new logger(std::string("color_palette"))))
 {
-//	connect(main_window.get(), SIGNAL(refresh_pallete(int)), this, SLOT(change_palette(int)));
 	logger_h->log_info("Color palette successfuly created.");
 }
 
@@ -22,5 +21,7 @@ int color_palette::get_dominant_color()
 
 void color_palette::set_dominant_color(int new_val)
 {
+	logger_h->log_debug("New dominant color was set to " + std::to_string(new_val));
 	color_handler = new_val;
+	notify_change();
 }
