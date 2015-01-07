@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <map>
+#include <array>
+#include <QColor>
 
 namespace consts {
 namespace log{
@@ -14,6 +17,7 @@ namespace log{
 } //naespace log
 	extern const std::vector<char> colors;
 	extern const int palette_size;
+	extern const std::map<char, QColor> char_to_rgb_color_map;
 } //namespace consts
 
 #endif // COMMON_CONSTS_H

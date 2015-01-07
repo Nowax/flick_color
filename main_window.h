@@ -5,6 +5,7 @@
 #include "logger/logger.h"
 #include "color_palette.h"
 #include "view.h"
+#include <boost/optional.hpp>
 
 namespace Ui {
 class main_window;
@@ -44,6 +45,9 @@ private:
 	int turns_counter;
 	void prepare_palette_view();
 	void iterate_turns_counter();
+	void response_for_clicked_button(const char new_dominant_color);
+	void prepare_color_buttons();
+	boost::optional<QColor> find_color(const char char_color) const;
 };
 
 #endif // MAIN_WINDOW_H
