@@ -47,10 +47,13 @@ void main_window::update(matrix_t new_palette)
 		for (int col = 0; col < consts::palette_size; col++) {
 			QModelIndex index
 				= model->index(row,col,QModelIndex());
+//			model->setData(index, QVariant(QBrush(QColor(0,10,67))),Qt::BackgroundRole);
 			model->setData(index, QChar(new_palette[row][col].first));
 		}
 	}
 	ui->tableView->setModel(model);
+	ui->tableView->verticalHeader()->hide();
+	ui->tableView->horizontalHeader()->hide();
 	ui->tableView->adjustSize();
 }
 
