@@ -15,10 +15,6 @@ public:
 	void subscribe_model(std::shared_ptr<model> new_model);
 	void subscribe_view(std::shared_ptr<view> new_view);
 
-private slots:
-	void on_spinBox_valueChanged(int new_val);
-	void on_spinBox_2_valueChanged(int arg1);
-
 private:
 	logger_t logger_h;
 

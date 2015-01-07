@@ -22,17 +22,28 @@ public:
 	~main_window();
 
 	void update(matrix_t new_palette);
+	void announce_victory();
 
 private slots:
-	void on_spinBox_valueChanged(int new_val);
+	void on_pushButton_clicked();
 
-	void on_spinBox_2_valueChanged(int arg1);
+	void on_pushButton_2_clicked();
+
+	void on_pushButton_3_clicked();
+
+	void on_pushButton_4_clicked();
+
+	void on_pushButton_5_clicked();
+
+	void on_pushButton_6_clicked();
 
 private:
 	Ui::main_window *ui;
 	logger_t logger_h;
 	palette_t palette;
+	int turns_counter;
 	void prepare_palette_view();
+	void iterate_turns_counter();
 };
 
 #endif // MAIN_WINDOW_H

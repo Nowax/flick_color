@@ -6,11 +6,6 @@ palette_controller::palette_controller() :
 	logger_h->log_debug("Palette controller successfully created.");
 }
 
-void palette_controller::on_spinBox_valueChanged(int new_val)
-{
-	logger_h->log_debug("SpinBox value has been changed");
-}
-
 void palette_controller::subscribe_model(std::shared_ptr<class model> new_model)
 {
 	logger_h->log_info("Model successfully subscribed to controller.");

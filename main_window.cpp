@@ -3,16 +3,19 @@
 #include <QDebug>
 #include <qstandarditemmodel.h>
 #include <algorithm>
+#include <QMessageBox>
 
 main_window::main_window(palette_t p, QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::main_window),
 	logger_h(logger_t(new logger(std::string("main_window")))),
-	palette(p)
+	palette(p),
+	turns_counter(0)
 {
 	logger_h->log_debug("Main window successfully created.");
 	ui->setupUi(this);
 	prepare_palette_view();
+	ui->label->setText(QString::number(turns_counter));
 }
 
 main_window::~main_window()
@@ -30,6 +33,8 @@ void main_window::prepare_palette_view()
 		model->setHorizontalHeaderItem(column, new QStandardItem(QString::number(column+1)));
 	}
 	ui->tableView->setModel(model);
+	ui->tableView->verticalHeader()->setDefaultSectionSize(1.5*ui->tableView->fontMetrics().height());
+	ui->tableView->horizontalHeader()->setDefaultSectionSize(1.5*ui->tableView->fontMetrics().height());
 }
 
 void main_window::update(matrix_t new_palette)
@@ -42,21 +47,63 @@ void main_window::update(matrix_t new_palette)
 		for (int col = 0; col < consts::palette_size; col++) {
 			QModelIndex index
 				= model->index(row,col,QModelIndex());
-			model->setData(index, QChar(new_palette[row][col]));
+			model->setData(index, QChar(new_palette[row][col].first));
 		}
 	}
 	ui->tableView->setModel(model);
+	ui->tableView->adjustSize();
 }
 
-void main_window::on_spinBox_valueChanged(int new_val)
+void main_window::on_pushButton_clicked()
 {
-	logger_h->log_debug("SpinBox1 value has been changed to " + std::to_string(new_val));
-	palette->set_dominant_color(new_val);
-//	my_model->set_dominant_color(new_val);
+	logger_h->log_debug("# button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('#');
 }
 
-void main_window::on_spinBox_2_valueChanged(int arg1)
+void main_window::on_pushButton_2_clicked()
 {
-	logger_h->log_debug("SpinBox2 value has been changed to " + std::to_string(arg1));
-	palette->set_dominant_color(arg1);
+	logger_h->log_debug("$ button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('$');
+}
+
+void main_window::on_pushButton_3_clicked()
+{
+	logger_h->log_debug("X button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('X');
+}
+
+void main_window::on_pushButton_4_clicked()
+{
+	logger_h->log_debug("| button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('|');
+}
+
+void main_window::on_pushButton_5_clicked()
+{
+	logger_h->log_debug("@ button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('@');
+}
+
+void main_window::on_pushButton_6_clicked()
+{
+	logger_h->log_debug("? button clicked.");
+	iterate_turns_counter();
+	palette->set_dominant_color('?');
+}
+
+void main_window::iterate_turns_counter()
+{
+	ui->label->setText(QString::number(++turns_counter));
+}
+
+void main_window::announce_victory()
+{
+	QMessageBox msgBox;
+	QString message = "Congratulation! You've just won!";
+	msgBox.information(this,"Victory!",message,QMessageBox::Ok);
 }

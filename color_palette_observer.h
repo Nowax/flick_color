@@ -10,7 +10,7 @@
 typedef std::shared_ptr<class logger> logger_t;
 typedef std::shared_ptr<class main_window> main_window_t;
 typedef std::shared_ptr<class view> view_t;
-typedef std::vector<std::vector<char>> matrix_t;
+typedef std::vector<std::vector<std::pair<char, bool>>> matrix_t;
 
 class color_palette_observer : public model_observer
 {

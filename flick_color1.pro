@@ -13,6 +13,8 @@ QMAKE_CXXFLAGS += -std=c++11
 TARGET = flick_color1
 TEMPLATE = app
 
+RESOURCES = application.qrc
+
 HEADERS  += \
     model_observer.h \
     model.h \
@@ -24,7 +26,8 @@ HEADERS  += \
     logger/time_controller.h \
     common_consts.h \
     controller.h \
-    view.h
+    view.h \
+    rule_keeper.h
 
 SOURCES += main.cpp\
     model.cpp \
@@ -37,7 +40,8 @@ SOURCES += main.cpp\
     logger/time_controller.cpp \
     common_consts.cpp \
     controller.cpp \
-    view.cpp
+    view.cpp \
+    rule_keeper.cpp
 
 FORMS    += main_window.ui
 

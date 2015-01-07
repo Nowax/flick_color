@@ -12,5 +12,5 @@ namespace log {
 
 	const std::vector<char> colors = boost::assign::list_of
 			('#')('$')('?')('@')('X')('|');
-	const int palette_size = 6;
+	const int palette_size = 15;
 } // namespace consts

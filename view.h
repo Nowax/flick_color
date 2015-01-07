@@ -3,7 +3,7 @@
 
 #include <vector>
 
-typedef std::vector<std::vector<char>> matrix_t;
+typedef std::vector<std::vector<std::pair<char, bool>>> matrix_t;
 
 class view
 {
@@ -11,6 +11,7 @@ public:
 	view();
 
 	virtual void update(matrix_t new_palette) = 0;
+	virtual void announce_victory() = 0;
 };
 
 #endif // VIEW_H

@@ -7,6 +7,7 @@
 #include <memory>
 #include <stdio.h>
 #include "common_consts.h"
+#include "rule_keeper.h"
 
 void prepare_env()
 {
@@ -24,7 +25,10 @@ int main(int argc, char *argv[])
 	std::weak_ptr<class color_palette> wp_palette = c_palette;
 	auto w = std::shared_ptr<class main_window>(new main_window(c_palette));
 	auto palette_observer = std::shared_ptr<class color_palette_observer>(new color_palette_observer());
+	auto rule_keeper_h = std::shared_ptr<class rule_keeper>(new rule_keeper());
 
+	rule_keeper_h->add_view(w);
+	rule_keeper_h->subscribe(c_palette);
 	palette_observer->add_view(w);
 	palette_observer->subscribe(wp_palette.lock());
 	palette_observer->subscribe(c_palette);
