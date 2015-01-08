@@ -1,6 +1,6 @@
-#include "logger/logger.h"
+#include "src/log/logger.h"
 #include <iostream>
-#include "common_consts.h"
+#include "log_consts.h"
 #include <fstream>
 #include <mutex>
 
@@ -13,7 +13,7 @@ logger::logger(std::string name) :
 void logger::log_info(std::string msg)
 {
 #ifdef DEBUG_1
-	print(msg, consts::log::info_detail);
+	print(msg, consts::info_detail);
 #else
 	msg.clear();
 #endif
@@ -22,7 +22,7 @@ void logger::log_info(std::string msg)
 void logger::log_debug(std::string msg)
 {
 #ifdef DEBUG_2
-	print(msg, consts::log::debug_detail);
+	print(msg, consts::debug_detail);
 #else
 	msg.clear();
 #endif
@@ -30,12 +30,12 @@ void logger::log_debug(std::string msg)
 
 void logger::log_warning(std::string msg)
 {
-	print(msg, consts::log::warning_detail);
+	print(msg, consts::warning_detail);
 }
 
 void logger::log_error(std::string msg)
 {
-	print(msg, consts::log::error_detail);
+	print(msg, consts::error_detail);
 }
 
 void logger::print(std::string msg, std::string log_type)
@@ -54,7 +54,7 @@ void logger::save_log(std::string log_msg)
 	std::mutex mtx;
 
 	mtx.lock();
-	std::ofstream log_file(	consts::log::log_name, std::ios_base::out | std::ios_base::app);
+	std::ofstream log_file(	consts::log_name, std::ios_base::out | std::ios_base::app);
 	log_file << log_msg;
 }
 

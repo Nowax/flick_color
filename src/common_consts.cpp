@@ -3,14 +3,6 @@
 #include <array>
 
 namespace consts {
-namespace log {
-	const std::string log_name = "SYSLOG.log";
-	const std::string error_detail = "[ERR] ";
-	const std::string warning_detail = "[WRN] ";
-	const std::string info_detail = "[INFO] ";
-	const std::string debug_detail = "[DBG] ";	
-} // namespace log
-
 	const std::vector<char> colors = boost::assign::list_of
 			('B')('G')('R')('Y')('O')('P');
 	const std::map<char, QColor> char_to_rgb_color_map = boost::assign::map_list_of

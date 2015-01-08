@@ -1,7 +1,7 @@
 #ifndef PALETTE_CONTROLLER_H
 #define PALETTE_CONTROLLER_H
 
-#include "logger/logger.h"
+#include "src/log/logger.h"
 #include "controller.h"
 #include <memory>
 

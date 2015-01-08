@@ -13,37 +13,39 @@ QMAKE_CXXFLAGS += -std=c++11
 TARGET = flick_color1
 TEMPLATE = app
 
-RESOURCES = application.qrc
+RESOURCES = resources/application.qrc
 
 HEADERS  += \
-    model_observer.h \
-    model.h \
-    color_palette.h \
-    color_palette_observer.h \
-    main_window.h \
-    palette_controller.h \
-    logger/logger.h \
-    logger/time_controller.h \
-    common_consts.h \
-    controller.h \
-    view.h \
-    rule_keeper.h
+    src/model_observer.h \
+    src/model.h \
+    src/color_palette.h \
+    src/color_palette_observer.h \
+    src/main_window.h \
+    src/palette_controller.h \
+    src/log/logger.h \
+    src/log/time_controller.h \
+    src/log/log_consts.h \
+    src/common_consts.h \
+    src/controller.h \
+    src/view.h \
+    src/rule_keeper.h
 
-SOURCES += main.cpp\
-    model.cpp \
-    color_palette.cpp \
-    color_palette_observer.cpp \
-    main_window.cpp \
-    palette_controller.cpp \
-    model_observer.cpp \
-    logger/logger.cpp \
-    logger/time_controller.cpp \
-    common_consts.cpp \
-    controller.cpp \
-    view.cpp \
-    rule_keeper.cpp
+SOURCES += src/main.cpp\
+    src/model.cpp \
+    src/color_palette.cpp \
+    src/color_palette_observer.cpp \
+    src/main_window.cpp \
+    src/palette_controller.cpp \
+    src/model_observer.cpp \
+    src/log/logger.cpp \
+    src/log/time_controller.cpp \
+    src/log/log_consts.cpp \
+    src/common_consts.cpp \
+    src/controller.cpp \
+    src/view.cpp \
+    src/rule_keeper.cpp
 
-FORMS    += main_window.ui
+FORMS    += src/main_window.ui
 
 DEFINES += DEBUG_1 \
         DEBUG_2

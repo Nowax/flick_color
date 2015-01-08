@@ -2,7 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
-#include "logger/logger.h"
+#include "src/log/logger.h"
 #include "color_palette.h"
 #include "view.h"
 #include <boost/optional.hpp>

@@ -4,7 +4,7 @@
 #include "model.h"
 #include <QObject>
 #include "main_window.h"
-#include "logger/logger.h"
+#include "src/log/logger.h"
 #include <vector>
 #include "common_consts.h"
 

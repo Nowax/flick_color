@@ -7,11 +7,12 @@
 #include <memory>
 #include <stdio.h>
 #include "common_consts.h"
+#include "log/log_consts.h"
 #include "rule_keeper.h"
 
 void prepare_env()
 {
-	remove(consts::log::log_name.c_str());
+	remove(consts::log_name.c_str());
 }
 
 int main(int argc, char *argv[])
